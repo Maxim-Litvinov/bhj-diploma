@@ -55,21 +55,16 @@ class TransactionsPage {
     if (!this.lastOptions) {
       return;
     }
-    const confirmUser = confirm('Вы действительно хотите удалить счёт?');
-    if (!confirmUser) {
-      return;
+    const id = this.lastOptions.account_id;
+    if (confirm("Вы действительно хотите удалить счет?")) {
+      Account.remove({ id }, (error, response) => {
+        if (response.success) {
+          App.updateWidgets();
+          App.updateForms();
+        }
+        this.clear();
+      });
     }
-    Account.remove({ id: this.lastOptions.account_id }, (error, response) => {
-      if (error) {
-        throw new Error(error);
-      }
-      if (!response.success) {
-        return;
-      }
-      this.clear();
-      App.updateWidgets();
-      App.updateForms();
-    });
   }
 
   /**

@@ -11,6 +11,12 @@
       "email": "test@list.ru",
       "password": "12345",
       "id": "15yh2jdaclq1839n2"
+    },
+    {
+      "name": "Максим Литвинов",
+      "email": "test@mail.ru",
+      "password": "12345",
+      "id": "15yh2j918lrqmipdi"
     }
   ],
   "accounts": [
